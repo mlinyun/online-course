@@ -14,9 +14,11 @@
     <name>online-course</name>
     <description>online-course</description>
     <properties>
+        <java.version>17</java.version>
+        <manven.compiler.source>17</manven.compiler.source>
+        <manven.compiler.target>17</manven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>17</java.version>
     </properties>
     <dependencies>
         <!-- Spring Web -->
@@ -36,6 +38,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!-- Knife4j -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <version>4.5.0</version>
         </dependency>
     </dependencies>
 
