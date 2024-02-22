@@ -60,11 +60,33 @@
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
 
-        <!-- 数据库连接池 -->
+        <!-- 数据库连接池 Druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.2.21</version>
+        </dependency>
+
+        <!-- MyBatis -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <!-- MyBatis Test -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter-test</artifactId>
+            <version>3.0.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- MyBatis Plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.5</version>
         </dependency>
     </dependencies>
 
