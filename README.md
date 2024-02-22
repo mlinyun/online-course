@@ -26,9 +26,9 @@ Vue + SpringBoot + MySQL + Redis，Java 商业项目全栈开发实践，帮助�
 
 ## 功能架构
 
-![功能架构](./src/main/resources/assets/功能架构.png)
+![功能架构](doc/功能架构.png)
 
 ## 技术架构
 
-![技术架构](./src/main/resources/assets/技术架构.png)
+![技术架构](doc/技术架构.png)
 
