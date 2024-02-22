@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Redis 数据库读写操作测试
+ */
 @Tag(name = "Redis操作", description = "该接口为Redis操作接口，主要用来测试Redis的读写操作")
 @RestController
 @RequestMapping("/redis")
