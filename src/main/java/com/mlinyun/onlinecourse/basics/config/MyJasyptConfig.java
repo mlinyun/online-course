@@ -15,11 +15,6 @@ public class MyJasyptConfig {
     // Jasypt 加密密钥
     private static final String key = "online-course";
 
-    @Bean(name = "CodeEncryptorBean")
-    public StringEncryptor CodeEncryptorBean() {
-        return getPooledPBEStringEncryptor();
-    }
-
     // 该方法用于获取加密之后的密码
     public static void main(String[] args) {
         PooledPBEStringEncryptor encryptor = getPooledPBEStringEncryptor();
@@ -47,5 +42,10 @@ public class MyJasyptConfig {
         config.setStringOutputType("base64");
         encryptor.setConfig(config);
         return encryptor;
+    }
+
+    @Bean(name = "CodeEncryptorBean")
+    public StringEncryptor CodeEncryptorBean() {
+        return getPooledPBEStringEncryptor();
     }
 }

@@ -5,28 +5,28 @@
 <mapper namespace="com.mlinyun.onlinecourse.data.dao.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="com.mlinyun.onlinecourse.data.entity.User">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
-            <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
-            <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="address" column="address" jdbcType="VARCHAR"/>
-            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
-            <result property="birth" column="birth" jdbcType="TIMESTAMP"/>
-            <result property="departmentId" column="departmentId" jdbcType="VARCHAR"/>
-            <result property="departmentTitle" column="departmentTitle" jdbcType="VARCHAR"/>
-            <result property="description" column="description" jdbcType="VARCHAR"/>
-            <result property="email" column="email" jdbcType="VARCHAR"/>
-            <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
-            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
-            <result property="passStrength" column="passStrength" jdbcType="VARCHAR"/>
-            <result property="password" column="password" jdbcType="VARCHAR"/>
-            <result property="sex" column="sex" jdbcType="VARCHAR"/>
-            <result property="status" column="status" jdbcType="INTEGER"/>
-            <result property="street" column="street" jdbcType="VARCHAR"/>
-            <result property="type" column="type" jdbcType="INTEGER"/>
-            <result property="username" column="username" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
+        <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+        <result property="birth" column="birth" jdbcType="TIMESTAMP"/>
+        <result property="departmentId" column="departmentId" jdbcType="VARCHAR"/>
+        <result property="departmentTitle" column="departmentTitle" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+        <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+        <result property="passStrength" column="passStrength" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="street" column="street" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">

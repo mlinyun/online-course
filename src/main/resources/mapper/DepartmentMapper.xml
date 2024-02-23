@@ -5,17 +5,17 @@
 <mapper namespace="com.mlinyun.onlinecourse.data.dao.mapper.DepartmentMapper">
 
     <resultMap id="BaseResultMap" type="com.mlinyun.onlinecourse.data.entity.Department">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
-            <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
-            <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="isParent" column="isParent" jdbcType="BIT"/>
-            <result property="parentId" column="parentId" jdbcType="VARCHAR"/>
-            <result property="sortOrder" column="sortOrder" jdbcType="DECIMAL"/>
-            <result property="status" column="status" jdbcType="INTEGER"/>
-            <result property="title" column="title" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
+        <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="isParent" column="isParent" jdbcType="BIT"/>
+        <result property="parentId" column="parentId" jdbcType="VARCHAR"/>
+        <result property="sortOrder" column="sortOrder" jdbcType="DECIMAL"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">

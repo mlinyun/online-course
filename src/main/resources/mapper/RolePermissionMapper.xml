@@ -5,14 +5,14 @@
 <mapper namespace="com.mlinyun.onlinecourse.data.dao.mapper.RolePermissionMapper">
 
     <resultMap id="BaseResultMap" type="com.mlinyun.onlinecourse.data.entity.RolePermission">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
-            <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
-            <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="permissionId" column="permissionId" jdbcType="VARCHAR"/>
-            <result property="roleId" column="roleId" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
+        <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="permissionId" column="permissionId" jdbcType="VARCHAR"/>
+        <result property="roleId" column="roleId" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">

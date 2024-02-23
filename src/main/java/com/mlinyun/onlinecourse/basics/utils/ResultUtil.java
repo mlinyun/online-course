@@ -5,21 +5,52 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * 统一结果返回工具类
+ *
  * @param <T>
  */
 public class ResultUtil<T> {
 
-    private Result<T> result;
-
     private static final String DEFAULT_SUCCESS_STR = "OK";
-
     private static final String DEFAULT_FAIL_STR = "操作失败";
+    private Result<T> result;
 
     public ResultUtil() {
         result = new Result<>();
         result.setSuccess(true);
         result.setMessage(DEFAULT_SUCCESS_STR);
         result.setCode(200);
+    }
+
+    public static <T> Result<T> data(T t) {
+        return new ResultUtil<T>().setData(t);
+    }
+
+    public static <T> Result<T> data() {
+        return new ResultUtil<T>().setData(null);
+    }
+
+    public static <T> Result<T> data(T t, String msg) {
+        return new ResultUtil<T>().setData(t, msg);
+    }
+
+    public static <T> Result<T> error(String msg) {
+        return new ResultUtil<T>().setErrorMsg(msg);
+    }
+
+    public static <T> Result<T> error() {
+        return new ResultUtil<T>().setErrorMsg(DEFAULT_FAIL_STR);
+    }
+
+    public static <T> Result<T> error(Integer code, String msg) {
+        return new ResultUtil<T>().setErrorMsg(code, msg);
+    }
+
+    public static <T> Result<T> success(String msg) {
+        return new ResultUtil<T>().setSuccessMsg(msg);
+    }
+
+    public static <T> Result<T> success() {
+        return new ResultUtil<T>().setSuccessMsg(DEFAULT_SUCCESS_STR);
     }
 
     @Schema(description = "成功返回数据")
@@ -68,37 +99,5 @@ public class ResultUtil<T> {
         this.result.setMessage(msg);
         this.result.setCode(code);
         return this.result;
-    }
-
-    public static <T> Result<T> data(T t) {
-        return new ResultUtil<T>().setData(t);
-    }
-
-    public static <T> Result<T> data() {
-        return new ResultUtil<T>().setData(null);
-    }
-
-    public static <T> Result<T> data(T t, String msg) {
-        return new ResultUtil<T>().setData(t, msg);
-    }
-
-    public static <T> Result<T> error(String msg) {
-        return new ResultUtil<T>().setErrorMsg(msg);
-    }
-
-    public static <T> Result<T> error() {
-        return new ResultUtil<T>().setErrorMsg(DEFAULT_FAIL_STR);
-    }
-
-    public static <T> Result<T> error(Integer code, String msg) {
-        return new ResultUtil<T>().setErrorMsg(code, msg);
-    }
-
-    public static <T> Result<T> success(String msg) {
-        return new ResultUtil<T>().setSuccessMsg(msg);
-    }
-
-    public static <T> Result<T> success() {
-        return new ResultUtil<T>().setSuccessMsg(DEFAULT_SUCCESS_STR);
     }
 }

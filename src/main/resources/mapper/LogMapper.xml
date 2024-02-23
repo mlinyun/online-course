@@ -5,21 +5,21 @@
 <mapper namespace="com.mlinyun.onlinecourse.data.dao.mapper.LogMapper">
 
     <resultMap id="BaseResultMap" type="com.mlinyun.onlinecourse.data.entity.Log">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
-            <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
-            <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
-            <result property="costTime" column="costTime" jdbcType="INTEGER"/>
-            <result property="ip" column="ip" jdbcType="VARCHAR"/>
-            <result property="ipInfo" column="ipInfo" jdbcType="VARCHAR"/>
-            <result property="logType" column="logType" jdbcType="INTEGER"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="requestParam" column="requestParam" jdbcType="VARCHAR"/>
-            <result property="requestType" column="requestType" jdbcType="VARCHAR"/>
-            <result property="requestUrl" column="requestUrl" jdbcType="VARCHAR"/>
-            <result property="username" column="username" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
+        <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="costTime" column="costTime" jdbcType="INTEGER"/>
+        <result property="ip" column="ip" jdbcType="VARCHAR"/>
+        <result property="ipInfo" column="ipInfo" jdbcType="VARCHAR"/>
+        <result property="logType" column="logType" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="requestParam" column="requestParam" jdbcType="VARCHAR"/>
+        <result property="requestType" column="requestType" jdbcType="VARCHAR"/>
+        <result property="requestUrl" column="requestUrl" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">

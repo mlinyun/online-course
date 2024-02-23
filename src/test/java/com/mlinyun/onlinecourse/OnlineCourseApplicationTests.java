@@ -11,13 +11,13 @@ import java.sql.SQLException;
 @SpringBootTest
 class OnlineCourseApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
-
     // 注入数据源对象
     @Autowired
     private DataSource dataSource;
+
+    @Test
+    void contextLoads() {
+    }
 
     // 测试 MySQL 数据源
     @Test
