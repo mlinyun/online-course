@@ -28,6 +28,7 @@ import java.util.Date;
 /**
  * 基础实体类
  */
+@Schema(description = "模板实体类")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

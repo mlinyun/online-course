@@ -1,6 +1,7 @@
 package com.mlinyun.onlinecourse.basics.baseClass;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * 基类服务层
  */
+@Schema(description = "模板服务层")
 @FunctionalInterface
 public interface BaseService<E, ID extends Serializable> {
 
