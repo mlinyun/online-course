@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mlinyun.onlinecourse.data.dao.mapper.FileMapper">
+
+    <resultMap id="BaseResultMap" type="com.mlinyun.onlinecourse.data.entity.File">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="createBy" column="createBy" jdbcType="VARCHAR"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="delFlag" column="delFlag" jdbcType="INTEGER"/>
+            <result property="updateBy" column="updateBy" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="fKey" column="fKey" jdbcType="VARCHAR"/>
+            <result property="location" column="location" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="size" column="size" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,createBy,createTime,
+        delFlag,updateBy,updateTime,
+        fKey,location,name,
+        size,type,url
+    </sql>
+</mapper>
