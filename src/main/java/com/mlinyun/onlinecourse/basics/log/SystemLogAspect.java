@@ -53,7 +53,7 @@ public class SystemLogAspect {
 
     private static final String LOG_DES_PRE = "description";
 
-    private static final String LOG_TYPE_PRE = "type";
+    private static final String LOG_TYPE_PRE = "logType";
 
     private static final String LOG_DO_PRE = "doType";
 
@@ -76,7 +76,7 @@ public class SystemLogAspect {
         try {
             String username = "";
             String description = getControllerMethodInfo(joinPoint).get("description").toString();
-            int type = (int) getControllerMethodInfo(joinPoint).get("type");
+            int type = (int) getControllerMethodInfo(joinPoint).get("logType");
             String doType = getControllerMethodInfo(joinPoint).get("doType").toString();
             Map<String, String[]> logParams = request.getParameterMap();
             JSONObject logJo = new JSONObject();

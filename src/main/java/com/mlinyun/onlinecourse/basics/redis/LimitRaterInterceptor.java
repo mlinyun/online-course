@@ -10,10 +10,10 @@ import com.mlinyun.onlinecourse.data.service.ISettingService;
 import com.mlinyun.onlinecourse.data.vo.HttpIpSsoSetting;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -29,16 +29,16 @@ import java.util.Objects;
 @Component
 public class LimitRaterInterceptor implements HandlerInterceptor {
 
-    @Autowired
+    @Resource
     private SysLoginProperties sysLoginProperties;
 
-    @Autowired
+    @Resource
     private RedisRaterLimiter redisRaterLimiter;
 
-    @Autowired
+    @Resource
     private IpInfoUtil ipInfoUtil;
 
-    @Autowired
+    @Resource
     private ISettingService iSettingService;
 
     private static final String OTHER_SETTING = "OTHER_SETTING";
@@ -55,7 +55,7 @@ public class LimitRaterInterceptor implements HandlerInterceptor {
     @Override
     @Operation(summary = "方法执行前过滤")
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, @Parameter(name = "响应的处理器") Object handler) throws Exception {
-        String ip = ipInfoUtil.getIpAddr(request);
+        String ip = ipInfoUtil.getRequestIpAddress(request);
         // 单IP限流判断
         if (sysLoginProperties.getOneLimiting()) {
             boolean flag1 = redisRaterLimiter.getLimitFlag(ip, sysLoginProperties.getOneLimitingSize(), sysLoginProperties.getOneLimitingTime());
@@ -65,7 +65,7 @@ public class LimitRaterInterceptor implements HandlerInterceptor {
         }
         // 全局限流判断
         if (sysLoginProperties.getAllLimiting()) {
-            boolean flag2 = redisRaterLimiter.getLimitFlag("ZWZ_LIMIT_ALL", sysLoginProperties.getAllLimitingSize(), sysLoginProperties.getAllLimitingTime());
+            boolean flag2 = redisRaterLimiter.getLimitFlag("SYS_LIMIT_ALL", sysLoginProperties.getAllLimitingSize(), sysLoginProperties.getAllLimitingTime());
             if (!flag2) {
                 throw new RuntimeExceptionHandler("系统已达到最大承载量，无法继续提供服务，请稍后再试！");
             }
@@ -91,6 +91,7 @@ public class LimitRaterInterceptor implements HandlerInterceptor {
                 }
             }
         } catch (Exception e) {
+            log.error(e.toString());
         }
         // 放行至下一个拦截器
         return true;

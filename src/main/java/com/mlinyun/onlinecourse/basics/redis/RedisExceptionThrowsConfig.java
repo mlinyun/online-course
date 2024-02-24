@@ -92,5 +92,6 @@ public class RedisExceptionThrowsConfig implements CachingConfigurer {
         }
         return RedisCacheManager.builder(factory).cacheDefaults(rc.entryTtl(expireTime)).build();
     }
+
 }
 

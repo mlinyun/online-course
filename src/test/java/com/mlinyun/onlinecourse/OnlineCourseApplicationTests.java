@@ -1,7 +1,7 @@
 package com.mlinyun.onlinecourse;
 
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.sql.DataSource;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 class OnlineCourseApplicationTests {
 
     // 注入数据源对象
-    @Autowired
+    @Resource
     private DataSource dataSource;
 
     @Test
@@ -32,6 +32,7 @@ class OnlineCourseApplicationTests {
         if (connection != null) {
             connection.close();
         }
+
     }
 
 }
