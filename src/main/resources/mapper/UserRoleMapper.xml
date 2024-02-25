@@ -15,6 +15,21 @@
         <result property="userId" column="userId" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <select id="findByUserId" resultType="com.mlinyun.onlinecourse.data.entity.Role">
+        SELECT r.id id, name, r.dataType
+        FROM user_role ur
+                 LEFT JOIN role r
+                           ON ur.roleId = r.id
+        WHERE userId = #{userId}
+    </select>
+
+    <select id="findDepIdsByUserId" resultType="java.lang.String">
+        SELECT DISTINCT rd.departmentId
+        FROM role_department rd
+        WHERE role_id IN
+              (SELECT ur.roleId FROM user_role ur WHERE ur.userId = #{userId})
+    </select>
+
     <sql id="Base_Column_List">
         id,createBy,createTime,
         delFlag,updateBy,updateTime,

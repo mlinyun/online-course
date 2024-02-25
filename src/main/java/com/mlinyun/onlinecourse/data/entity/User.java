@@ -84,6 +84,9 @@ public class User extends BaseEntity {
     @Schema(description = "用户类型")
     private Integer type;
 
+    @Schema(description = "个人门户")
+    private String myDoor;
+
     @Schema(description = "备注")
     private String description;
 

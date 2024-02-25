@@ -1,21 +1,19 @@
 package com.mlinyun.onlinecourse.data.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.mlinyun.onlinecourse.basics.baseVo.Result;
 import com.mlinyun.onlinecourse.basics.log.LogType;
 import com.mlinyun.onlinecourse.basics.log.SystemLog;
 import com.mlinyun.onlinecourse.basics.redis.RedisTemplateHelper;
 import com.mlinyun.onlinecourse.basics.security.SecurityUserDetails;
-import com.mlinyun.onlinecourse.basics.utils.WeiChatUtils;
-import com.mlinyun.onlinecourse.basics.utils.WxNoticeUtils;
-import com.mlinyun.onlinecourse.basics.utils.CommonUtil;
-import com.mlinyun.onlinecourse.basics.utils.ResultUtil;
-import com.mlinyun.onlinecourse.basics.utils.SecurityUtil;
+import com.mlinyun.onlinecourse.basics.utils.*;
 import com.mlinyun.onlinecourse.data.entity.User;
 import com.mlinyun.onlinecourse.data.service.IUserService;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,10 +26,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-
-@RestController
 @Tag(name = "企业微信验证码登录接口")
 @RequestMapping("/qwVerificationCode")
+@CacheConfig(cacheNames = "qwVerificationCode")
+@RestController
 @Transactional
 public class QwVerificationCodeController {
 
@@ -44,7 +42,9 @@ public class QwVerificationCodeController {
     @Resource
     private SecurityUtil securityUtil;
 
-    @Schema(description = "发送企微验证码")
+    @ApiOperationSupport(author = "LingYun")
+    @SystemLog(logName = "发送企微验证码", logType = LogType.LOGIN, doType = "QW-01")
+    @Operation(summary = "发送企微验证码", description = "发送企微验证码")
     @RequestMapping(value = "/sendVerificationCode", method = RequestMethod.GET)
     public Result<Object> sendVerificationCode(@RequestParam String jobNumber) {
         if (!Objects.equals("zwz", jobNumber)) {
@@ -66,8 +66,9 @@ public class QwVerificationCodeController {
         return ResultUtil.success();
     }
 
-    @SystemLog(logName = "企微验证码登入", logType = LogType.LOGIN)
-    @Schema(description = "企微验证码登入")
+    @ApiOperationSupport(author = "LingYun")
+    @SystemLog(logName = "企微验证码登入", logType = LogType.LOGIN, doType = "QW-02")
+    @Operation(summary = "企微验证码登入", description = "企微验证码登入")
     @RequestMapping(value = "/verificationCodeLogin", method = RequestMethod.GET)
     public Result<Object> verificationCodeLogin(@RequestParam String jobNumber, @RequestParam String code) {
         String codeAns = redisTemplateHelper.get("qwsms:" + jobNumber);

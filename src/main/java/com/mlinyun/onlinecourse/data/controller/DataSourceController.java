@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * 数据源配置信息获取
  */
-@Tag(name = "数据源信息", description = "该接口为数据源接口，主要用来查看后端数据源的信息")
+@Tag(name = "数据源信息接口", description = "该接口为数据源接口，主要用来查看后端数据源的信息")
 @RestController
 @RequestMapping("/datasource")
 public class DataSourceController {

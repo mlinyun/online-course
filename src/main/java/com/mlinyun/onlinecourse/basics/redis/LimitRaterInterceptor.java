@@ -7,7 +7,7 @@ import com.mlinyun.onlinecourse.basics.utils.IpInfoUtil;
 import com.mlinyun.onlinecourse.basics.utils.NullUtils;
 import com.mlinyun.onlinecourse.data.entity.Setting;
 import com.mlinyun.onlinecourse.data.service.ISettingService;
-import com.mlinyun.onlinecourse.data.vo.HttpIpSsoSetting;
+import com.mlinyun.onlinecourse.data.vo.HttpIpSsoSettingVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.annotation.Resource;
@@ -44,10 +44,10 @@ public class LimitRaterInterceptor implements HandlerInterceptor {
     private static final String OTHER_SETTING = "OTHER_SETTING";
 
     @Operation(summary = "查询系统黑名单配置")
-    public HttpIpSsoSetting getHttpIpSsoSetting() {
+    public HttpIpSsoSettingVO getHttpIpSsoSetting() {
         Setting s = iSettingService.getById(OTHER_SETTING);
         if (s != null && !NullUtils.isNull(s.getValue())) {
-            return new Gson().fromJson(s.getValue(), HttpIpSsoSetting.class);
+            return new Gson().fromJson(s.getValue(), HttpIpSsoSettingVO.class);
         }
         return null;
     }
@@ -71,7 +71,7 @@ public class LimitRaterInterceptor implements HandlerInterceptor {
             }
         }
         // IP黑名单
-        HttpIpSsoSetting os = getHttpIpSsoSetting();
+        HttpIpSsoSettingVO os = getHttpIpSsoSetting();
         if (os != null && !NullUtils.isNull(os.getBlacklist())) {
             String[] list = os.getBlacklist().split("\n");
             for (String item : list) {
